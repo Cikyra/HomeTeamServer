@@ -7,10 +7,10 @@ import (
 )
 
 type User struct {
-	ID        uuid.UUID `json:"id"`
+	ID        uuid.UUID `gorm:"type:uuid;default:gen_random_uuid()" json:"id"`
 	Name      string    `json:"name"`
 	Email     string    `json:"email"`
-	PhotoUrls []string  `json:"photo_urls"`
+	PhotoUrls []string  `gorm:"type:text[]" json:"photo_urls"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 	// TODO: Add Children
